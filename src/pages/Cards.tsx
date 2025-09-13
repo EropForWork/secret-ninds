@@ -16,7 +16,7 @@ export default function Cards(): JSX.Element {
     const fetchCards = async () => {
       try {
         const response = await fetch(
-          `${import.meta.env.VITE_API_URL}/api/notes`,
+          `${import.meta.env.VITE_API_URL}/api/cards`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
