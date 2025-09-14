@@ -33,13 +33,24 @@ export function CreateCardModal({
         parseFloat(balance)
       );
       onCardCreated(newCard);
+
       onClose();
+      setName("");
+      setColor("#364153");
+      setBalance("0");
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
       setError(err.message);
     } finally {
       setIsSaving(false);
     }
+  };
+
+  const handleClose = () => {
+    setName("");
+    setColor("#364153");
+    setBalance("0");
+    onClose();
   };
 
   return (
@@ -114,7 +125,7 @@ export function CreateCardModal({
           <div className="flex gap-3 pt-4 border-t border-gray-700">
             <button
               type="button"
-              onClick={onClose}
+              onClick={handleClose}
               className="flex-1 py-2 px-4 text-sm font-medium text-gray-400 hover:text-gray-200 bg-transparent border border-gray-600 rounded-lg hover:bg-gray-700 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 focus:ring-offset-gray-800"
             >
               Отмена

@@ -127,7 +127,7 @@ export function TransactionModal({
                   htmlFor="description"
                   className="block text-sm font-medium text-gray-300 mb-1"
                 >
-                  Описание (опционально)
+                  Описание
                 </label>
                 <input
                   id="description"
