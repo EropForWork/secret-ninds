@@ -15,7 +15,7 @@ export function CreateCardModal({
 }: CreateCardModalProps): JSX.Element | null {
   const [name, setName] = useState("");
   const [color, setColor] = useState("#64b5f6");
-  const [balance, setBalance] = useState("0");
+  const [balance, setBalance] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [isSaving, setIsSaving] = useState(false);
 
@@ -37,7 +37,7 @@ export function CreateCardModal({
       onClose();
       setName("");
       setColor("#64b5f6");
-      setBalance("0");
+      setBalance("");
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
       setError(err.message);
@@ -49,7 +49,7 @@ export function CreateCardModal({
   const handleClose = () => {
     setName("");
     setColor("#64b5f6");
-    setBalance("0");
+    setBalance("");
     onClose();
   };
 

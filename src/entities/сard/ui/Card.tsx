@@ -1,4 +1,4 @@
-import { useState, type JSX } from "react";
+import { useEffect, useState, type JSX } from "react";
 import type { ICard } from "../lib";
 import { TransactionModal } from "../../add-transaction";
 import { TransactionHistoryModal } from "../../transaction-history";
@@ -32,6 +32,10 @@ export function Card({ card, onDelete }: CardProps): JSX.Element {
   const handleCardUpdate = (updatedCard: ICard) => {
     setCurrentCard(updatedCard);
   };
+
+  useEffect(() => {
+    setCurrentCard(card);
+  }, [card]);
 
   return (
     <>
@@ -72,7 +76,7 @@ export function Card({ card, onDelete }: CardProps): JSX.Element {
               }`}
             >
               {currentCard.balance >= 0 ? "+" : ""}
-              {currentCard.balance.toFixed(2)} ₽
+              {currentCard.balance.toFixed(0)} ₽
             </span>
           </div>
         </div>
@@ -110,7 +114,7 @@ export function Card({ card, onDelete }: CardProps): JSX.Element {
               }`}
             >
               {currentCard.lastOperation.amount >= 0 ? "+" : "-"}
-              {Math.abs(currentCard.lastOperation.amount).toFixed(2)} ₽
+              {Math.abs(currentCard.lastOperation.amount).toFixed(0)} ₽
             </span>
           </div>
           {/* Кнопка "Добавить транзакцию" — справа, миниатюрная, как в MUI */}

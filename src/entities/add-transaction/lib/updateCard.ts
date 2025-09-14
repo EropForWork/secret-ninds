@@ -30,7 +30,7 @@ export async function updateCard(
         body: JSON.stringify({
           name: name.trim(),
           color: color.trim(),
-          balance: parseFloat(balance.toFixed(2)), // округляем до 2 знаков
+          balance: parseFloat(balance.toFixed(0)), // округляем до 2 знаков
         }),
       }
     );

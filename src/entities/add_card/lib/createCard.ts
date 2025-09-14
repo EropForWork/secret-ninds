@@ -27,7 +27,7 @@ export async function createCard(
       body: JSON.stringify({
         name: name.trim(),
         color: color.trim(),
-        balance: parseFloat(balance.toFixed(2)),
+        balance: parseFloat(balance.toFixed(0)),
       }),
     });
 

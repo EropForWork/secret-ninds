@@ -130,8 +130,8 @@ export default function Cards(): JSX.Element {
                 У тебя пока нет карточек.
               </p>
             ) : (
-              currentCards.map((card, index) => (
-                <Card key={index} card={card} onDelete={handleDeleteCard} />
+              currentCards.map((card) => (
+                <Card key={card._id} card={card} onDelete={handleDeleteCard} />
               ))
             )}
           </div>
