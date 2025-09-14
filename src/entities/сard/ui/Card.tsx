@@ -2,6 +2,7 @@
 import { useState, type JSX } from "react";
 import type { ICard } from "../lib";
 import { TransactionModal } from "../../add-transaction";
+import { TransactionHistoryModal } from "../../transaction-history";
 
 interface CardProps {
   card: ICard;
@@ -9,22 +10,24 @@ interface CardProps {
 
 export function Card({ card }: CardProps): JSX.Element {
   // 🔹 Состояние для модалки
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalTransactionOpen, setIsModalTransactionOpen] = useState(false);
+  const [isHistoryTransactionOpen, setIsHistoryTransactionOpen] =
+    useState(false);
   // 🔹 Храним карточку в состоянии — чтобы можно было обновить
   const [currentCard, setCurrentCard] = useState<ICard>(card);
 
   // 🔹 Функция открытия модалки
-  const handleOpenModal = () => setIsModalOpen(true);
+  const handleOpenTransactionModal = () => setIsModalTransactionOpen(true);
+  const handleOpenHistoryModal = () => setIsHistoryTransactionOpen(true);
+  const handleCloseHistoryModal = () => setIsHistoryTransactionOpen(false);
 
   // 🔹 Функция закрытия модалки
-  const handleCloseModal = () => setIsModalOpen(false);
+  const handleCloseModal = () => setIsModalTransactionOpen(false);
 
   // 🔹 Функция обновления карточки после добавления транзакции
   const handleCardUpdate = (updatedCard: ICard) => {
     setCurrentCard(updatedCard);
   };
-
-  console.log(currentCard);
 
   return (
     <>
@@ -71,7 +74,10 @@ export function Card({ card }: CardProps): JSX.Element {
 
         {/* Последняя операция — описание слева, сумма по центру, кнопка справа */}
         <div className="flex flex-row items-center justify-between">
-          <div className="p-3 w-[85%] bg-gray-700 rounded-lg border border-gray-600 flex items-center justify-between">
+          <div
+            className="p-3 w-[85%] bg-gray-700 rounded-lg border cursor-pointer border-gray-600 flex items-center justify-between hover:bg-blue-900 transition-colors"
+            onClick={handleOpenHistoryModal}
+          >
             {/* Слева: описание и дата */}
             <div className="flex-1">
               <p className="text-sm text-gray-300 mb-1">
@@ -105,7 +111,7 @@ export function Card({ card }: CardProps): JSX.Element {
           {/* Кнопка "Добавить транзакцию" — справа, миниатюрная, как в MUI */}
           <button
             type="button"
-            onClick={handleOpenModal}
+            onClick={handleOpenTransactionModal}
             className="flex items-center justify-center w-8 h-8 rounded-full bg-blue-600 text-white cursor-pointer hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-800"
             aria-label="Добавить транзакцию"
           >
@@ -126,12 +132,18 @@ export function Card({ card }: CardProps): JSX.Element {
           </button>
         </div>
       </div>
-      {/* 🔹 Модальное окно “Добавить транзакцию” — подключено */}
+      {/* 🔹 Модальное окно “Добавить транзакцию” */}
       <TransactionModal
-        isOpenParam={isModalOpen}
+        isOpenParam={isModalTransactionOpen}
         onClose={handleCloseModal}
         idCard={currentCard._id}
         onCardUpdated={handleCardUpdate}
+      />
+      {/* 🔹 Модальное окно “История транзакций” */}
+      <TransactionHistoryModal
+        isOpen={isHistoryTransactionOpen}
+        onClose={handleCloseHistoryModal}
+        operations={currentCard.operations}
       />
     </>
   );

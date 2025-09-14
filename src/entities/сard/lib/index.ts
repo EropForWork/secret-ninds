@@ -1,1 +1,1 @@
-export type { ICard } from "./types";
+export type { ICard, IOperation } from "./types";

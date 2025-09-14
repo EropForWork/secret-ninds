@@ -7,7 +7,7 @@ export interface ICard {
   operations: IOperation[];
 }
 
-interface IOperation {
+export interface IOperation {
   amount: number;
   date: string;
   description: string;
