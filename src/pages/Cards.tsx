@@ -17,6 +17,10 @@ export default function Cards(): JSX.Element {
     setCurrentCards((prev) => [newCard, ...prev]); // Добавляем в начало
   };
 
+  const handleDeleteCard = (cardId: number) => {
+    setCurrentCards((prev) => prev.filter((card) => card._id !== cardId));
+  };
+
   useEffect(() => {
     setCurrentCards(cards);
   }, [cards]);
@@ -127,7 +131,7 @@ export default function Cards(): JSX.Element {
               </p>
             ) : (
               currentCards.map((card, index) => (
-                <Card key={index} card={card} />
+                <Card key={index} card={card} onDelete={handleDeleteCard} />
               ))
             )}
           </div>

@@ -6,9 +6,10 @@ import { EditCardModal } from "../../edit-card";
 
 interface CardProps {
   card: ICard;
+  onDelete: (cardId: number) => void;
 }
 
-export function Card({ card }: CardProps): JSX.Element {
+export function Card({ card, onDelete }: CardProps): JSX.Element {
   // 🔹 Состояние для модалки
   const [isModalTransactionOpen, setIsModalTransactionOpen] = useState(false);
   const [isHistoryTransactionOpen, setIsHistoryTransactionOpen] =
@@ -31,16 +32,6 @@ export function Card({ card }: CardProps): JSX.Element {
   const handleCardUpdate = (updatedCard: ICard) => {
     setCurrentCard(updatedCard);
   };
-  const handleDeleteCard = (cardId: number) => {
-    console.log("Deleting card:", cardId);
-
-    // В будущем: отправить DELETE на сервер
-    // Сейчас просто удаляем из UI
-    // setCurrentCard({ ...currentCard, _id: -1 } as any); // Это заглушка — заменим позже
-    // onClose(); // Закрываем родительскую карточку (если нужно)
-  };
-
-  console.log(currentCard);
 
   return (
     <>
@@ -165,7 +156,7 @@ export function Card({ card }: CardProps): JSX.Element {
         onClose={handleCloseEditModal}
         card={currentCard}
         onCardUpdated={handleCardUpdate}
-        onDelete={handleDeleteCard}
+        onDelete={onDelete}
       />
     </>
   );
