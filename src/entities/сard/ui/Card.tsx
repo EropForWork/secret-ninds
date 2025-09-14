@@ -2,6 +2,7 @@ import { useState, type JSX } from "react";
 import type { ICard } from "../lib";
 import { TransactionModal } from "../../add-transaction";
 import { TransactionHistoryModal } from "../../transaction-history";
+import { EditCardModal } from "../../edit-card";
 
 interface CardProps {
   card: ICard;
@@ -12,6 +13,7 @@ export function Card({ card }: CardProps): JSX.Element {
   const [isModalTransactionOpen, setIsModalTransactionOpen] = useState(false);
   const [isHistoryTransactionOpen, setIsHistoryTransactionOpen] =
     useState(false);
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   // 🔹 Храним карточку в состоянии — чтобы можно было обновить
   const [currentCard, setCurrentCard] = useState<ICard>(card);
 
@@ -19,6 +21,8 @@ export function Card({ card }: CardProps): JSX.Element {
   const handleOpenTransactionModal = () => setIsModalTransactionOpen(true);
   const handleOpenHistoryModal = () => setIsHistoryTransactionOpen(true);
   const handleCloseHistoryModal = () => setIsHistoryTransactionOpen(false);
+  const handleOpenEditModal = () => setIsEditModalOpen(true);
+  const handleCloseEditModal = () => setIsEditModalOpen(false);
 
   // 🔹 Функция закрытия модалки
   const handleCloseModal = () => setIsModalTransactionOpen(false);
@@ -26,6 +30,14 @@ export function Card({ card }: CardProps): JSX.Element {
   // 🔹 Функция обновления карточки после добавления транзакции
   const handleCardUpdate = (updatedCard: ICard) => {
     setCurrentCard(updatedCard);
+  };
+  const handleDeleteCard = (cardId: number) => {
+    console.log("Deleting card:", cardId);
+
+    // В будущем: отправить DELETE на сервер
+    // Сейчас просто удаляем из UI
+    // setCurrentCard({ ...currentCard, _id: -1 } as any); // Это заглушка — заменим позже
+    // onClose(); // Закрываем родительскую карточку (если нужно)
   };
 
   return (
@@ -37,6 +49,7 @@ export function Card({ card }: CardProps): JSX.Element {
         {/* Название и баланс */}
         <div className="flex justify-between items-center mb-4">
           <button
+            onClick={handleOpenEditModal}
             type="button"
             className="flex items-center gap-1 px-2 py-1 text-xs font-medium cursor-pointer text-blue-300 hover:bg-blue-900/15 rounded-md transition-colors focus:outline-none focus:ring-1 focus:ring-blue-500 focus:ring-offset-1 focus:ring-offset-gray-800"
           >
@@ -143,6 +156,14 @@ export function Card({ card }: CardProps): JSX.Element {
         isOpen={isHistoryTransactionOpen}
         onClose={handleCloseHistoryModal}
         operations={currentCard.operations}
+      />
+      {/* 🔹 Модальное окно “Редактировать карточку” */}
+      <EditCardModal
+        isOpen={isEditModalOpen}
+        onClose={handleCloseEditModal}
+        card={currentCard}
+        onCardUpdated={handleCardUpdate}
+        onDelete={handleDeleteCard}
       />
     </>
   );
