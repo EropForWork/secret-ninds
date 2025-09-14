@@ -1,4 +1,3 @@
-// src/entities/transaction-history/ui/TransactionHistoryModal.tsx
 import { type JSX } from "react";
 import type { IOperation } from "../../сard";
 

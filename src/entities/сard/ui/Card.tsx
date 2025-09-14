@@ -1,4 +1,3 @@
-// src\entities\сard\ui\Card.tsx
 import { useState, type JSX } from "react";
 import type { ICard } from "../lib";
 import { TransactionModal } from "../../add-transaction";

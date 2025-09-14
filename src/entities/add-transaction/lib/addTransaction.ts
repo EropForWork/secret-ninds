@@ -1,5 +1,3 @@
-// src/entities/add-transaction/lib/addTransaction.ts
-
 import type { ICard } from "../../сard";
 
 export async function addTransaction(
