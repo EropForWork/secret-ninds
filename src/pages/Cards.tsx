@@ -1,5 +1,5 @@
 import { useEffect, useState, type JSX } from "react";
-import { Card, type ICard } from "../entities/Card";
+import { Card, type ICard } from "../entities/сard";
 
 export default function Cards(): JSX.Element {
   const [cards, setCards] = useState<ICard[]>([]);
@@ -96,21 +96,11 @@ export default function Cards(): JSX.Element {
         {/* Заголовок */}
         <div className="text-center">
           <h1 className="text-3xl font-semibold text-blue-200">
-            💳 Мои карточки
+            💳 Балансиаго
           </h1>
           <p className="mt-2 text-sm text-gray-400">
             Управляй своими расходами
           </p>
-        </div>
-
-        {/* Кнопка выхода */}
-        <div className="flex justify-end">
-          <button
-            onClick={handleLogout}
-            className="px-4 py-2 bg-red-600 hover:bg-red-700 text-white text-sm rounded-md transition-colors"
-          >
-            Выйти
-          </button>
         </div>
 
         {/* Список карточек */}
@@ -123,9 +113,18 @@ export default function Cards(): JSX.Element {
             cards.map((card, index) => <Card key={index} card={card} />)
           )}
         </div>
-
         {/* Тень под формой */}
         <div className="h-1 bg-gray-800"></div>
+
+        {/* Кнопка выхода */}
+        <div className="flex justify-end">
+          <button
+            onClick={handleLogout}
+            className="px-4 py-2 bg-red-600 hover:bg-red-700 text-white text-sm rounded-md transition-colors"
+          >
+            Выйти
+          </button>
+        </div>
       </div>
     </div>
   );
