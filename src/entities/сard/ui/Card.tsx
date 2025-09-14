@@ -75,8 +75,7 @@ export function Card({ card, onDelete }: CardProps): JSX.Element {
                 currentCard.balance >= 0 ? "bg-green-600" : "bg-red-600"
               }`}
             >
-              {currentCard.balance >= 0 ? "+" : ""}
-              {currentCard.balance.toFixed(0)} ₽
+              {currentCard.balance.toLocaleString("ru-RU")} ₽
             </span>
           </div>
         </div>
@@ -114,7 +113,10 @@ export function Card({ card, onDelete }: CardProps): JSX.Element {
               }`}
             >
               {currentCard.lastOperation.amount >= 0 ? "+" : "-"}
-              {Math.abs(currentCard.lastOperation.amount).toFixed(0)} ₽
+              {Math.abs(currentCard.lastOperation.amount).toLocaleString(
+                "ru-RU"
+              )}{" "}
+              ₽
             </span>
           </div>
           {/* Кнопка "Добавить транзакцию" — справа, миниатюрная, как в MUI */}

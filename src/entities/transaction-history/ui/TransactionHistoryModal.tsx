@@ -66,7 +66,7 @@ export function TransactionHistoryModal({
                     }`}
                   >
                     {op.amount >= 0 ? "+" : ""}
-                    {op.amount.toFixed(0)} ₽
+                    {op.amount.toLocaleString("ru-RU")} ₽
                   </span>
                 </div>
               ))
