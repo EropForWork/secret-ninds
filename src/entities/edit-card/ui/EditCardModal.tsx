@@ -20,6 +20,7 @@ export function EditCardModal({
   const [name, setName] = useState(card.name);
   const [color, setColor] = useState(card.color);
   const [balance, setBalance] = useState(card.balance.toString());
+  const [order, setOrder] = useState(card.order);
   const [showConfirmDelete, setShowConfirmDelete] = useState(false);
   const [showConfirmClear, setShowConfirmClear] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -37,7 +38,8 @@ export function EditCardModal({
         card._id,
         name.trim(),
         color.trim(),
-        parseFloat(balance)
+        parseFloat(balance),
+        order
       );
       onCardUpdated(updatedCard);
       onClose();
@@ -55,7 +57,7 @@ export function EditCardModal({
 
     try {
       const updatedCard = await clearCardHistory(card._id);
-      onCardUpdated(updatedCard); // 👈 Теперь обновляем из ответа сервера!
+      onCardUpdated(updatedCard);
       onClose();
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
@@ -155,6 +157,27 @@ export function EditCardModal({
               value={balance}
               onChange={(e) => setBalance(e.target.value)}
               placeholder="Например: 500.00"
+              className="w-full rounded-md border border-gray-600 bg-gray-700 px-3 py-2 text-white placeholder-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required
+            />
+          </div>
+
+          {/* Порядок */}
+          <div>
+            <label
+              htmlFor="order"
+              className="block text-sm font-medium text-gray-300 mb-1"
+            >
+              Порядок
+            </label>
+            <input
+              id="order"
+              type="number"
+              step="1"
+              min="0"
+              value={order}
+              onChange={(e) => setOrder(parseInt(e.target.value))}
+              placeholder="новый порядок"
               className="w-full rounded-md border border-gray-600 bg-gray-700 px-3 py-2 text-white placeholder-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             />

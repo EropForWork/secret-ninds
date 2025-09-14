@@ -7,9 +7,10 @@ import { EditCardModal } from "../../edit-card";
 interface CardProps {
   card: ICard;
   onDelete: (cardId: number) => void;
+  onUpdate: (order: ICard) => void;
 }
 
-export function Card({ card, onDelete }: CardProps): JSX.Element {
+export function Card({ card, onDelete, onUpdate }: CardProps): JSX.Element {
   // 🔹 Состояние для модалки
   const [isModalTransactionOpen, setIsModalTransactionOpen] = useState(false);
   const [isHistoryTransactionOpen, setIsHistoryTransactionOpen] =
@@ -31,6 +32,7 @@ export function Card({ card, onDelete }: CardProps): JSX.Element {
   // 🔹 Функция обновления карточки после добавления транзакции
   const handleCardUpdate = (updatedCard: ICard) => {
     setCurrentCard(updatedCard);
+    onUpdate(updatedCard);
   };
 
   useEffect(() => {
@@ -48,7 +50,7 @@ export function Card({ card, onDelete }: CardProps): JSX.Element {
           <button
             onClick={handleOpenEditModal}
             type="button"
-            className="flex items-center gap-1 px-2 py-1 text-xs font-medium cursor-pointer text-blue-300 hover:bg-blue-900/15 rounded-md transition-colors focus:outline-none focus:ring-1 focus:ring-blue-500 focus:ring-offset-1 focus:ring-offset-gray-800"
+            className="flex items-center max-w-[60%] overflow-hidden gap-1 px-2 py-1 text-xs font-medium cursor-pointer text-blue-300 hover:bg-blue-900/15 rounded-md transition-colors focus:outline-none focus:ring-1 focus:ring-blue-500 focus:ring-offset-1 focus:ring-offset-gray-800"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

@@ -16,6 +16,7 @@ export function CreateCardModal({
   const [name, setName] = useState("");
   const [color, setColor] = useState("#64b5f6");
   const [balance, setBalance] = useState("");
+  const [order, setOrder] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [isSaving, setIsSaving] = useState(false);
 
@@ -30,7 +31,8 @@ export function CreateCardModal({
       const newCard = await createCard(
         name.trim(),
         color.trim(),
-        parseFloat(balance)
+        parseFloat(balance),
+        order ? parseInt(order) : null
       );
       onCardCreated(newCard);
 
@@ -38,6 +40,7 @@ export function CreateCardModal({
       setName("");
       setColor("#64b5f6");
       setBalance("");
+      setOrder("");
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
       setError(err.message);
@@ -50,6 +53,7 @@ export function CreateCardModal({
     setName("");
     setColor("#64b5f6");
     setBalance("");
+    setOrder("");
     onClose();
   };
 
@@ -116,6 +120,26 @@ export function CreateCardModal({
               value={balance}
               onChange={(e) => setBalance(e.target.value)}
               placeholder="Например: 1000.00"
+              className="w-full rounded-md border border-gray-600 bg-gray-700 px-3 py-2 text-white placeholder-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required
+            />
+          </div>
+          {/* Порядок */}
+          <div>
+            <label
+              htmlFor="balance"
+              className="block text-sm font-medium text-gray-300 mb-1"
+            >
+              Порядок карточки
+            </label>
+            <input
+              id="order"
+              type="number"
+              step="1"
+              min="0"
+              value={order}
+              onChange={(e) => setOrder(e.target.value)}
+              placeholder="Порядок отображения карточки"
               className="w-full rounded-md border border-gray-600 bg-gray-700 px-3 py-2 text-white placeholder-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             />

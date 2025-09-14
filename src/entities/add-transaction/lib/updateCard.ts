@@ -4,7 +4,8 @@ export async function updateCard(
   idCard: number,
   name: string,
   color: string,
-  balance: number
+  balance: number,
+  order: number
 ): Promise<ICard> {
   const token = localStorage.getItem("token");
   if (!token) {
@@ -30,7 +31,8 @@ export async function updateCard(
         body: JSON.stringify({
           name: name.trim(),
           color: color.trim(),
-          balance: parseFloat(balance.toFixed(0)), // округляем до 2 знаков
+          balance: parseFloat(balance.toFixed(0)),
+          order: order,
         }),
       }
     );

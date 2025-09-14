@@ -7,23 +7,24 @@ export default function Cards(): JSX.Element {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
-  const [currentCards, setCurrentCards] = useState<ICard[]>(cards);
 
   const handleOpenCreateModal = () => setIsCreateModalOpen(true);
   const handleCloseCreateModal = () => setIsCreateModalOpen(false);
 
   // 👇 Обработка создания новой карточки
   const handleCardCreated = (newCard: ICard) => {
-    setCurrentCards((prev) => [newCard, ...prev]); // Добавляем в начало
+    setCards((prev) => [newCard, ...prev]);
   };
 
   const handleDeleteCard = (cardId: number) => {
-    setCurrentCards((prev) => prev.filter((card) => card._id !== cardId));
+    setCards((prev) => prev.filter((card) => card._id !== cardId));
   };
 
-  useEffect(() => {
-    setCurrentCards(cards);
-  }, [cards]);
+  const handleCardUpdated = (updatedCard: ICard) => {
+    setCards((prev) =>
+      prev.map((card) => (card._id === updatedCard._id ? updatedCard : card))
+    );
+  };
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -125,14 +126,21 @@ export default function Cards(): JSX.Element {
 
           {/* Список карточек */}
           <div className="bg-gray-800 rounded-lg p-6 border border-gray-700 space-y-3">
-            {currentCards.length === 0 ? (
+            {cards.length === 0 ? (
               <p className="text-gray-400 text-center py-4 italic">
                 У тебя пока нет карточек.
               </p>
             ) : (
-              currentCards.map((card) => (
-                <Card key={card._id} card={card} onDelete={handleDeleteCard} />
-              ))
+              cards
+                .sort((a, b) => a.order - b.order)
+                .map((card) => (
+                  <Card
+                    key={card._id}
+                    card={card}
+                    onDelete={handleDeleteCard}
+                    onUpdate={handleCardUpdated}
+                  />
+                ))
             )}
           </div>
           {/* Тень под формой */}

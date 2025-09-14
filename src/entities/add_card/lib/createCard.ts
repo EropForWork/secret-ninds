@@ -3,7 +3,8 @@ import type { ICard } from "../../сard";
 export async function createCard(
   name: string,
   color: string,
-  balance: number
+  balance: number,
+  order: number | null
 ): Promise<ICard> {
   const token = localStorage.getItem("token");
   if (!token) {
@@ -28,6 +29,7 @@ export async function createCard(
         name: name.trim(),
         color: color.trim(),
         balance: parseFloat(balance.toFixed(0)),
+        order: order,
       }),
     });
 

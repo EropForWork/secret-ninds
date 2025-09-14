@@ -5,6 +5,7 @@ export interface ICard {
   balance: number;
   lastOperation: IOperation;
   operations: IOperation[];
+  order: number;
 }
 
 export interface IOperation {
