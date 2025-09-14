@@ -36,7 +36,7 @@ export function CreateCardModal({
 
       onClose();
       setName("");
-      setColor("#364153");
+      setColor("#64b5f6");
       setBalance("0");
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
@@ -48,7 +48,7 @@ export function CreateCardModal({
 
   const handleClose = () => {
     setName("");
-    setColor("#364153");
+    setColor("#64b5f6");
     setBalance("0");
     onClose();
   };
