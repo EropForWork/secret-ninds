@@ -40,6 +40,8 @@ export function Card({ card }: CardProps): JSX.Element {
     // onClose(); // Закрываем родительскую карточку (если нужно)
   };
 
+  console.log(currentCard);
+
   return (
     <>
       <div
