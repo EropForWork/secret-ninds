@@ -1,8 +1,8 @@
+import { CreateCardModal } from "@/entities/add_card";
+import { Card, type ICard } from "@/entities/сard";
 import { useEffect, useState, type JSX } from "react";
-import { Card, type ICard } from "../entities/сard";
-import { CreateCardModal } from "../entities/add_card";
 
-export default function Cards(): JSX.Element {
+export function Cards(): JSX.Element {
   const [cards, setCards] = useState<ICard[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);

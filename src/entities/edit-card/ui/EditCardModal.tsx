@@ -1,6 +1,6 @@
+import { clearCardHistory, updateCard } from "@/entities/add-transaction";
+import type { ICard } from "@/entities/сard/@x/editCardModal";
 import { useState, type JSX } from "react";
-import type { ICard } from "../../сard";
-import { clearCardHistory, updateCard } from "../../add-transaction/lib";
 
 interface EditCardModalProps {
   isOpen: boolean;

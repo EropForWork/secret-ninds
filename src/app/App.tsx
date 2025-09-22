@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Login from "./pages/Login";
-import Cards from "./pages/Cards";
+import { Login } from "@pages/Login";
+import { Cards } from "@pages/Cards";
 
 function App() {
   return (

@@ -1,8 +1,8 @@
 import { useEffect, useState, type JSX } from "react";
 import type { ICard } from "../lib";
-import { TransactionModal } from "../../add-transaction";
-import { TransactionHistoryModal } from "../../transaction-history";
-import { EditCardModal } from "../../edit-card";
+import { TransactionModal } from "@/entities/add-transaction/@x/card";
+import { TransactionHistoryModal } from "@/entities/transaction-history/@x/card";
+import { EditCardModal } from "@/entities/edit-card/@x/card";
 
 interface CardProps {
   card: ICard;

@@ -1,4 +1,4 @@
-import type { ICard } from "../../сard";
+import type { ICard } from "@/entities/сard/@x/createCard";
 
 export async function createCard(
   name: string,

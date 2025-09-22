@@ -1,1 +1,1 @@
-export { CreateCardModal } from "./CreateCardModal";
+export { CreateCardModal } from "./createCardModal";

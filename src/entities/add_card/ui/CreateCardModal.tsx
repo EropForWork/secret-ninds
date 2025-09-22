@@ -1,5 +1,5 @@
 import { useState, type JSX } from "react";
-import type { ICard } from "../../сard";
+import type { ICard } from "@/entities/сard/@x/createCardModal";
 import { createCard } from "../lib";
 
 interface CreateCardModalProps {

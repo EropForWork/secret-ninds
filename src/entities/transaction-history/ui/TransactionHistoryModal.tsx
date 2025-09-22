@@ -1,5 +1,5 @@
 import { type JSX } from "react";
-import type { IOperation } from "../../сard";
+import type { IOperation } from "@/entities/сard/@x/transactionHistoryModal";
 
 interface TransactionHistoryModalProps {
   isOpen: boolean;
