@@ -1,0 +1,23 @@
+{
+	"extends": [
+		"stylelint-config-standard",
+		"stylelint-config-clean-order/error"
+	],
+	"plugins": [
+		"stylelint-order"
+	],
+	"rules": {
+		"selector-class-pattern": [
+			"^[a-z][a-z0-9-]*(?:__[a-z][a-z0-9-]*)?(?:_[a-z][a-z0-9-]*(?:-[a-z][a-z0-9-]*)?(_[a-z][a-z0-9-]*(?:-[a-z][a-z0-9-]*)?)?)?$",
+			{
+				"message": "Классы должны быть написаны в БЭМ-нотации примеры: \n  .block\n  .block__element\n  .block_modifier\n  .block_modifier-key_modifier-value\nМодифицировать можно как блоки так и элементы."
+			}
+		],
+		"import-notation": "string"
+	},
+	"ignoreFiles": [
+		"./node_modules/**",
+		"./custom_modules/**",
+		"./dist/**"
+	],
+}

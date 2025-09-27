@@ -1,16 +1,18 @@
 import type { ICard } from '@/shared/lib';
 
-export async function createCard(
+export async function updateCard(
+	idCard: number,
 	name: string,
 	color: string,
 	balance: number,
-	order: number | null,
-	createCardApi: (
+	order: number,
+	updateCardApi: (
 		token: string,
+		idCard: number,
 		name: string,
 		color: string,
 		balance: number,
-		order: number | null
+		order: number
 	) => Promise<ICard>
 ): Promise<ICard> {
 	const token = localStorage.getItem('token');
@@ -25,5 +27,5 @@ export async function createCard(
 		throw new Error('Цвет карточки обязателен');
 	}
 
-	return await createCardApi(token, name, color, balance, order);
+	return await updateCardApi(token, idCard, name, color, balance, order);
 }

@@ -1,1 +1,1 @@
-export { EditCardModal } from "./editCardModal";
+export { EditCardModal } from './editCardModal';

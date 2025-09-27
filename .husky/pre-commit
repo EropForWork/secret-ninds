@@ -1,0 +1,15 @@
+echo "=== Running Steiger ==="
+npx steiger ./src
+echo ""
+
+echo "=== Running stylelint ==="
+npx stylelint "**/*.css" --max-warnings=0
+echo "✔ No problems found!"
+
+echo "=== Running Eslint ==="
+npm run lint --max-warnings=0
+echo "✔ No problems found!"
+
+echo "=== Running Typescript ==="
+npx tsc --b --noEmit
+echo "✔ No problems found!"
