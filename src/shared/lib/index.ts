@@ -1,1 +1,1 @@
-export type { ICard, IOperation } from './types';
+export type { ICard, IOperation, ILoginForm, ILoginResponse } from './types';
