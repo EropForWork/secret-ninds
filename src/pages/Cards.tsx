@@ -93,6 +93,14 @@ export function Cards(): JSX.Element {
 						</button>
 					</div>
 					<div className="h-1 bg-gray-800"></div>
+					<div className="flex flex-row justify-end">
+						<button
+							onClick={handleLogout}
+							className="px-4 py-2 bg-red-600 hover:bg-red-700 text-white text-sm rounded-md transition-colors"
+						>
+							Выйти
+						</button>
+					</div>
 				</div>
 			</div>
 		);
