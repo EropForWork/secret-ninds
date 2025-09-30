@@ -1,4 +1,4 @@
-import { CreateCardModal } from '@/entities/add_card';
+import { CreateCardModal } from '@/entities/add-card';
 import { createCardApi, fetchCardsApi } from '@/features/server-api';
 import type { ICard } from '@/shared/lib';
 import { Card } from '@/widgets/сard';
