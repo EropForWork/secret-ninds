@@ -1,1 +1,1 @@
-export { TransactionHistoryModal } from './transactionHistoryModal';
+export { TransactionHistoryModal } from './TransactionHistoryModal';
