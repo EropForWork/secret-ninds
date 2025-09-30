@@ -2,7 +2,7 @@ import { useState, type JSX } from 'react';
 import type { ICard } from '@/shared/lib';
 import { createCard } from '../lib';
 
-interface CreateCardModalProps {
+interface CardModalProps {
 	isOpen: boolean;
 	onClose: () => void;
 	onCardCreated: (newCard: ICard) => void;
@@ -15,12 +15,12 @@ interface CreateCardModalProps {
 	) => Promise<ICard>;
 }
 
-export function CreateCardModal({
+export function CardModal({
 	isOpen,
 	onClose,
 	onCardCreated,
 	createCardApi,
-}: CreateCardModalProps): JSX.Element | null {
+}: CardModalProps): JSX.Element | null {
 	const [name, setName] = useState('');
 	const [color, setColor] = useState('#64b5f6');
 	const [balance, setBalance] = useState('');

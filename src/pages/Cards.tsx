@@ -1,4 +1,4 @@
-import { CreateCardModal } from '@/entities/add-card';
+import { CardModal } from '@/entities/add-card';
 import { createCardApi, fetchCardsApi } from '@/features/server-api';
 import type { ICard } from '@/shared/lib';
 import { Card } from '@/widgets/сard';
@@ -178,7 +178,7 @@ export function Cards(): JSX.Element {
 				</div>
 			</div>
 			{/* 🔹 Модальное окно “Создать карточку” */}
-			<CreateCardModal
+			<CardModal
 				isOpen={isCreateModalOpen}
 				onClose={handleCloseCreateModal}
 				onCardCreated={handleCardCreated}
