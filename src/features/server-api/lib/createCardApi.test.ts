@@ -25,13 +25,13 @@ describe('createCardApi', () => {
 		const balance = 500;
 		const order = 1;
 		const mockNewCard: ICard = {
-			id: '1',
+			_id: 1,
 			name,
 			color,
 			balance,
 			order,
-			userId: '1',
-			transactions: [],
+			lastOperation: { amount: 0, date: '', description: '' },
+			operations: [],
 		};
 
 		mockFetch.mockResolvedValue(

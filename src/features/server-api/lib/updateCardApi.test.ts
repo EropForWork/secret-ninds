@@ -26,13 +26,17 @@ describe('updateCardApi', () => {
 		const balance = 1500;
 		const order = 0;
 		const mockUpdatedCard: ICard = {
-			id: String(cardId),
+			_id: cardId,
 			name,
 			color,
 			balance,
 			order,
-			userId: '1',
-			transactions: [],
+			lastOperation: {
+				amount: 100,
+				date: new Date().toISOString(),
+				description: 'update',
+			},
+			operations: [],
 		};
 
 		mockFetch.mockResolvedValue(

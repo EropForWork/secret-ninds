@@ -22,22 +22,30 @@ describe('fetchCardsApi', () => {
 		const token = 'test-token';
 		const mockCards: ICard[] = [
 			{
-				id: '1',
+				_id: 1,
 				name: 'Card 1',
 				color: '#ff0000',
 				balance: 100,
 				order: 1,
-				userId: '1',
-				transactions: [],
+				lastOperation: {
+					amount: 10,
+					date: new Date().toISOString(),
+					description: 'op 1',
+				},
+				operations: [],
 			},
 			{
-				id: '2',
+				_id: 2,
 				name: 'Card 2',
 				color: '#00ff00',
 				balance: 200,
 				order: 2,
-				userId: '1',
-				transactions: [],
+				lastOperation: {
+					amount: 20,
+					date: new Date().toISOString(),
+					description: 'op 2',
+				},
+				operations: [],
 			},
 		];
 

@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { addTransactionApi } from './addTransactionApi';
-import type { ICard } from '@/shared/lib';
+import type { ICard, IOperation } from '@/shared/lib';
 
 describe('addTransactionApi', () => {
 	const mockFetch = vi.fn();
@@ -23,22 +23,16 @@ describe('addTransactionApi', () => {
 		const amount = 100;
 		const description = 'Test Transaction';
 		const token = 'test-token';
+		const date = new Date().toISOString();
+		const mockOperation: IOperation = { amount, description, date };
 		const mockUpdatedCard: ICard = {
-			id: String(cardId),
+			_id: cardId,
 			name: 'Test Card',
 			color: '#123456',
 			balance: 900,
 			order: 1,
-			userId: '1',
-			transactions: [
-				{
-					id: 't1',
-					amount,
-					description,
-					cardId: String(cardId),
-					timestamp: new Date().toISOString(),
-				},
-			],
+			lastOperation: mockOperation,
+			operations: [mockOperation],
 		};
 
 		mockFetch.mockResolvedValue(

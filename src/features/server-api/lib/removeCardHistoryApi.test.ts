@@ -26,13 +26,17 @@ describe('removeCardHistoryApi', () => {
 		vi.setSystemTime(date);
 
 		const mockUpdatedCard: ICard = {
-			id: String(cardId),
+			_id: cardId,
 			name: 'Test Card',
 			color: '#123456',
 			balance: 0,
 			order: 1,
-			userId: '1',
-			transactions: [],
+			lastOperation: {
+				amount: 0,
+				date: date.toISOString(),
+				description: 'История очищена',
+			},
+			operations: [],
 		};
 
 		mockFetch.mockResolvedValue(
