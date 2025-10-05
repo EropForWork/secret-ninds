@@ -1,4 +1,5 @@
 import type { ICard } from '@/shared/lib';
+import { ApiError } from '@/shared/lib/errors';
 
 export async function updateCardApi(
 	token: string,
@@ -28,14 +29,14 @@ export async function updateCardApi(
 
 		if (!response.ok) {
 			const errorData = await response.json();
-			throw new Error(errorData.message || 'Не удалось обновить карточку');
+			throw new ApiError(errorData.message || 'Не удалось обновить карточку');
 		}
 
 		const updatedCard: ICard = await response.json();
 		return updatedCard;
 		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	} catch (error: any) {
-		if (error instanceof Error) {
+		if (error instanceof ApiError) {
 			throw error;
 		}
 		throw new Error('Ошибка сети. Проверьте подключение.');
