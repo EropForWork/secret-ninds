@@ -1,5 +1,12 @@
 import type { ICard } from '@/shared/lib';
 
+class ApiError extends Error {
+	constructor(message: string) {
+		super(message);
+		this.name = 'ApiError';
+	}
+}
+
 export async function removeCardHistoryApi(idCard: number, token: string) {
 	try {
 		const response = await fetch(
@@ -24,14 +31,14 @@ export async function removeCardHistoryApi(idCard: number, token: string) {
 
 		if (!response.ok) {
 			const errorData = await response.json();
-			throw new Error(errorData.message || 'Не удалось очистить историю');
+			throw new ApiError(errorData.message || 'Не удалось очистить историю');
 		}
 
 		const updatedCard: ICard = await response.json();
 		return updatedCard;
 		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	} catch (error: any) {
-		if (error instanceof Error) {
+		if (error instanceof ApiError) {
 			throw error;
 		}
 		throw new Error('Ошибка сети. Проверьте подключение.');

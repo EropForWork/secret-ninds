@@ -1,5 +1,12 @@
 import type { ICard } from '@/shared/lib';
 
+class ApiError extends Error {
+	constructor(message: string) {
+		super(message);
+		this.name = 'ApiError';
+	}
+}
+
 export async function createCardApi(
 	token: string,
 	name: string,
@@ -24,14 +31,14 @@ export async function createCardApi(
 
 		if (!response.ok) {
 			const errorData = await response.json();
-			throw new Error(errorData.message || 'Не удалось создать карточку');
+			throw new ApiError(errorData.message || 'Не удалось создать карточку');
 		}
 
 		const newCard: ICard = await response.json();
 		return newCard;
 		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	} catch (error: any) {
-		if (error instanceof Error) {
+		if (error instanceof ApiError) {
 			throw error;
 		}
 		throw new Error('Ошибка сети. Проверьте подключение.');

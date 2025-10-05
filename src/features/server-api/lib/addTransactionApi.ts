@@ -1,3 +1,12 @@
+import type { ICard } from '@/shared/lib';
+
+class ApiError extends Error {
+	constructor(message: string) {
+		super(message);
+		this.name = 'ApiError';
+	}
+}
+
 export async function addTransactionApi(
 	idCard: number,
 	amount: number,
@@ -21,14 +30,13 @@ export async function addTransactionApi(
 		);
 		if (!response.ok) {
 			const errorData = await response.json();
-			throw new Error(errorData.message || 'Не удалось добавить транзакцию');
+			throw new ApiError(errorData.message || 'Не удалось добавить транзакцию');
 		}
-		const updatedCard = await response.json();
+		const updatedCard: ICard = await response.json();
 		return updatedCard;
 		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	} catch (error: any) {
-		// Перехватываем и оборачиваем ошибку для ясности
-		if (error instanceof Error) {
+		if (error instanceof ApiError) {
 			throw error;
 		}
 		throw new Error('Ошибка сети. Проверьте подключение.');

@@ -10,7 +10,9 @@
 		"preview": "vite preview",
 		"prepare": "husky",
 		"format": "prettier --write ./src",
-		"stylelint:fix": "stylelint \"src/**/*.{css,scss}\" --fix"
+		"stylelint:fix": "stylelint \"src/**/*.{css,scss}\" --fix",
+		"test": "vitest",
+		"test:ui": "vitest --ui"
 	},
 	"dependencies": {
 		"@stylistic/stylelint-plugin": "^4.0.0",
@@ -22,12 +24,15 @@
 	},
 	"devDependencies": {
 		"@eslint/js": "^9.36.0",
+		"@testing-library/jest-dom": "^6.9.1",
+		"@testing-library/react": "^16.3.0",
 		"@types/node": "^22.15.0",
 		"@types/react": "^19.1.10",
 		"@types/react-dom": "^19.1.7",
 		"@typescript-eslint/eslint-plugin": "^8.44.1",
 		"@typescript-eslint/parser": "^8.44.1",
 		"@vitejs/plugin-react-swc": "^4.1.0",
+		"@vitest/ui": "^3.2.4",
 		"eslint": "^9.36.0",
 		"eslint-config-prettier": "^10.1.8",
 		"eslint-plugin-prettier": "^5.2.6",
@@ -36,6 +41,7 @@
 		"eslint-plugin-react-refresh": "^0.4.20",
 		"globals": "^16.4.0",
 		"husky": "^9.1.7",
+		"jsdom": "^27.0.0",
 		"postcss": "^8.5.3",
 		"postcss-scss": "^4.0.9",
 		"prettier": "^3.6.2",
@@ -48,6 +54,7 @@
 		"typescript": "~5.8.3",
 		"typescript-eslint": "^8.44.1",
 		"vite": "^7.1.2",
-		"vite-plugin-checker": "^0.10.3"
+		"vite-plugin-checker": "^0.10.3",
+		"vitest": "^3.2.4"
 	}
 }
