@@ -1,11 +1,5 @@
 import type { ICard } from '@/shared/lib';
-
-class ApiError extends Error {
-	constructor(message: string) {
-		super(message);
-		this.name = 'ApiError';
-	}
-}
+import { ApiError } from '@/shared/lib/errors';
 
 export async function createCardApi(
 	token: string,
