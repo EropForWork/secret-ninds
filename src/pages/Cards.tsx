@@ -87,7 +87,7 @@ export function Cards(): JSX.Element {
 						<p className="text-red-400">{error}</p>
 						<button
 							onClick={() => window.location.reload()}
-							className="mt-4 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md text-sm"
+							className="mt-4 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md text-sm cursor-pointer"
 						>
 							Попробовать снова
 						</button>
@@ -96,7 +96,7 @@ export function Cards(): JSX.Element {
 					<div className="flex flex-row justify-end">
 						<button
 							onClick={handleLogout}
-							className="px-4 py-2 bg-red-600 hover:bg-red-700 text-white text-sm rounded-md transition-colors"
+							className="px-4 py-2 bg-red-600 hover:bg-red-700 text-white text-sm rounded-md transition-colors cursor-pointer"
 						>
 							Выйти
 						</button>
@@ -149,7 +149,7 @@ export function Cards(): JSX.Element {
 							<button
 								type="button"
 								onClick={handleOpenCreateModal}
-								className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-800"
+								className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-800 cursor-pointer"
 							>
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
@@ -170,7 +170,7 @@ export function Cards(): JSX.Element {
 						</div>
 						<button
 							onClick={handleLogout}
-							className="px-4 py-2 bg-red-600 hover:bg-red-700 text-white text-sm rounded-md transition-colors"
+							className="px-4 py-2 bg-red-600 hover:bg-red-700 text-white text-sm rounded-md transition-colors cursor-pointer"
 						>
 							Выйти
 						</button>

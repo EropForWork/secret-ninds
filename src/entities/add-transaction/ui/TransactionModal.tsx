@@ -116,7 +116,7 @@ export function TransactionModal({
 									<button
 										type="button"
 										onClick={() => setIsIncome(!isIncome)}
-										className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-800 ${
+										className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-800 cursor-pointer ${
 											isIncome ? 'bg-green-600' : 'bg-red-600'
 										}`}
 										aria-pressed={isIncome}
@@ -153,14 +153,14 @@ export function TransactionModal({
 								<button
 									type="button"
 									onClick={onClose}
-									className="flex-1 py-2 px-4 text-sm font-medium text-gray-400 hover:text-gray-200 bg-transparent border border-gray-600 rounded-lg hover:bg-gray-700 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 focus:ring-offset-gray-800"
+									className="flex-1 py-2 px-4 text-sm font-medium text-gray-400 hover:text-gray-200 bg-transparent border border-gray-600 rounded-lg hover:bg-gray-700 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 focus:ring-offset-gray-800 cursor-pointer"
 								>
 									Отменить
 								</button>
 								<button
 									type="submit"
 									disabled={isLoading}
-									className={`flex-1 py-2 px-4 text-sm font-medium text-white rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-800 ${
+									className={`flex-1 py-2 px-4 text-sm font-medium text-white rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-800 cursor-pointer ${
 										isIncome
 											? 'bg-green-600 hover:bg-green-700'
 											: 'bg-blue-600 hover:bg-blue-700'
