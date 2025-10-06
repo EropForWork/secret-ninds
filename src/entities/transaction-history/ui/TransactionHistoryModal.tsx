@@ -15,7 +15,7 @@ export function TransactionHistoryModal({
 	if (!isOpen) return null;
 
 	return (
-		<div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+		<div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 mb-0">
 			{/* Модалка */}
 			<div className="bg-gray-800 rounded-xl border border-gray-700 shadow-2xl w-full max-w-md max-h-[80vh] p-6 text-white">
 				<div className="flex flex-row items-center justify-center mb-6">
