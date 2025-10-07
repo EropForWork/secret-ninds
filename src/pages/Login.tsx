@@ -58,8 +58,8 @@ export function Login(): JSX.Element {
 	}, [navigate]);
 
 	return (
-		<div className="min-h-screen bg-gray-900 flex items-center justify-center p-2 sm:p-4">
-			<div className="w-full max-w-sm sm:max-w-md space-y-6 sm:space-y-8">
+		<div className="min-h-screen max-h-screen bg-gray-900 flex items-center justify-center p-2 sm:p-4 overflow-hidden">
+			<div className="w-full max-w-sm sm:max-w-md space-y-4 sm:space-y-6 max-h-full overflow-hidden">
 				{/* Заголовок */}
 				<div className="text-center">
 					<h1 className="text-2xl sm:text-3xl font-semibold text-blue-200">
@@ -132,7 +132,7 @@ export function Login(): JSX.Element {
 					<div>
 						<button
 							type="submit"
-							className="relative w-full flex justify-center py-2.5 sm:py-3 px-4 border border-transparent rounded-md shadow-sm text-xs sm:text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transform transition-all duration-200 hover:scale-[1.01] active:scale-[0.99] cursor-pointer"
+							className="relative w-full flex justify-center py-2.5 sm:py-3 px-4 border border-transparent rounded-md shadow-sm text-xs sm:text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transform transition-all duration-200 active:scale-[0.99] cursor-pointer"
 						>
 							Войти
 						</button>

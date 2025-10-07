@@ -20,7 +20,21 @@
 }
 
 body {
+	overflow: hidden;
 	margin: 0;
+}
+
+/* Предотвращение скроллов на высоких экранах */
+html,
+body {
+	overflow: hidden;
+	max-height: 100vh;
+}
+
+/* Дополнительная защита от прокрутки */
+#root {
+	overflow: hidden;
+	max-height: 100vh;
 }
 
 /* Улучшенная мобильная адаптация */

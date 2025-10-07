@@ -56,8 +56,8 @@ export function Cards(): JSX.Element {
 
 	if (loading) {
 		return (
-			<div className="min-h-screen bg-gray-900 flex items-center justify-center p-2 sm:p-4">
-				<div className="w-full max-w-sm sm:max-w-md space-y-6 sm:space-y-8">
+			<div className="min-h-screen max-h-screen bg-gray-900 flex items-center justify-center p-2 sm:p-4 overflow-hidden">
+				<div className="w-full max-w-sm sm:max-w-md space-y-4 sm:space-y-6">
 					<div className="text-center">
 						<h1 className="text-2xl sm:text-3xl font-semibold text-blue-200">
 							🔄 Загрузка...
@@ -77,8 +77,8 @@ export function Cards(): JSX.Element {
 
 	if (error) {
 		return (
-			<div className="min-h-screen bg-gray-900 flex items-center justify-center p-2 sm:p-4">
-				<div className="w-full max-w-sm sm:max-w-md space-y-6 sm:space-y-8">
+			<div className="min-h-screen max-h-screen bg-gray-900 flex items-center justify-center p-2 sm:p-4 overflow-hidden">
+				<div className="w-full max-w-sm sm:max-w-md space-y-4 sm:space-y-6">
 					<div className="text-center">
 						<h1 className="text-2xl sm:text-3xl font-semibold text-blue-200">
 							⚠️ Ошибка
@@ -112,8 +112,8 @@ export function Cards(): JSX.Element {
 
 	return (
 		<>
-			<div className="min-h-screen bg-gray-900 flex items-center justify-center p-2 sm:p-4">
-				<div className="w-full max-w-sm sm:max-w-md space-y-6 sm:space-y-8">
+			<div className="min-h-screen max-h-screen bg-gray-900 flex items-center justify-center p-2 sm:p-4 overflow-hidden">
+				<div className="w-full max-w-sm sm:max-w-md space-y-4 sm:space-y-6 max-h-full overflow-hidden">
 					{/* Заголовок */}
 					<div className="text-center">
 						<h1 className="text-2xl sm:text-3xl font-semibold text-blue-200">
