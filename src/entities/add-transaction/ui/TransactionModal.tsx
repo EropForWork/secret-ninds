@@ -71,22 +71,22 @@ export function TransactionModal({
 	return (
 		<>
 			{isOpen && (
-				<div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 mb-0">
+				<div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-2 sm:p-4 mb-0">
 					{/* Сама модалка */}
-					<div className="bg-gray-800 rounded-xl border border-gray-700 shadow-2xl w-full max-w-md p-6 text-white">
+					<div className="bg-gray-800 rounded-xl border border-gray-700 shadow-2xl w-full max-w-sm sm:max-w-md p-4 sm:p-6 text-white max-h-[90vh] overflow-y-auto">
 						{/* Заголовок */}
-						<h2 className="text-xl font-semibold text-blue-200 mb-6">
+						<h2 className="text-lg sm:text-xl font-semibold text-blue-200 mb-4 sm:mb-6">
 							{error ? `Ошибка: ${error}` : '➕ Добавить транзакцию'}
 						</h2>
 
 						{/* Форма */}
-						<form onSubmit={handleSubmit} className="space-y-4">
+						<form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
 							{/* Сумма */}
-							<div className="flex flex-row justify-between items-center">
-								<div className="w-[70%] flex flex-row justify-between items-center gap-2">
+							<div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 sm:gap-0">
+								<div className="w-full sm:w-[70%]">
 									<label
 										htmlFor="amount"
-										className="block text-sm font-medium text-gray-300 mb-1"
+										className="block text-xs sm:text-sm font-medium text-gray-300 mb-1"
 									>
 										Сумма
 									</label>
@@ -98,7 +98,7 @@ export function TransactionModal({
 										value={amount}
 										onChange={e => setAmount(e.target.value)}
 										placeholder="Например: 150.50"
-										className="w-full rounded-md border border-gray-600 bg-gray-700 px-3 py-2 text-white placeholder-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+										className="w-full rounded-md border border-gray-600 bg-gray-700 px-3 py-2 text-white placeholder-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
 										required
 										autoFocus
 									/>
@@ -106,7 +106,7 @@ export function TransactionModal({
 								{/* TOGGLE — Расход / Доход */}
 								<div className="flex items-center justify-between gap-2">
 									<span
-										className={`text-sm font-medium ${
+										className={`text-xs sm:text-sm font-medium ${
 											isIncome ? 'text-green-400' : 'text-red-400'
 										}`}
 									>
@@ -116,14 +116,16 @@ export function TransactionModal({
 									<button
 										type="button"
 										onClick={() => setIsIncome(!isIncome)}
-										className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-800 cursor-pointer ${
+										className={`relative inline-flex h-5 w-9 sm:h-6 sm:w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-800 cursor-pointer ${
 											isIncome ? 'bg-green-600' : 'bg-red-600'
 										}`}
 										aria-pressed={isIncome}
 									>
 										<span
-											className={`inline-block h-5 w-5 transform rounded-full bg-white transition-transform ${
-												isIncome ? 'translate-x-6' : 'translate-x-1'
+											className={`inline-block h-4 w-4 sm:h-5 sm:w-5 transform rounded-full bg-white transition-transform ${
+												isIncome
+													? 'translate-x-4 sm:translate-x-6'
+													: 'translate-x-1'
 											}`}
 										/>
 									</button>
@@ -134,7 +136,7 @@ export function TransactionModal({
 							<div>
 								<label
 									htmlFor="description"
-									className="block text-sm font-medium text-gray-300 mb-1"
+									className="block text-xs sm:text-sm font-medium text-gray-300 mb-1"
 								>
 									Описание
 								</label>
@@ -144,23 +146,23 @@ export function TransactionModal({
 									value={description}
 									onChange={e => setDescription(e.target.value)}
 									placeholder="Кофе, Бензин, Зарплата..."
-									className="w-full rounded-md border border-gray-600 bg-gray-700 px-3 py-2 text-white placeholder-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+									className="w-full rounded-md border border-gray-600 bg-gray-700 px-3 py-2 text-white placeholder-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
 								/>
 							</div>
 
 							{/* Кнопки */}
-							<div className="flex gap-3 pt-4 border-t border-gray-700">
+							<div className="flex flex-col sm:flex-row gap-2 sm:gap-3 pt-3 sm:pt-4 border-t border-gray-700">
 								<button
 									type="button"
 									onClick={onClose}
-									className="flex-1 py-2 px-4 text-sm font-medium text-gray-400 hover:text-gray-200 bg-transparent border border-gray-600 rounded-lg hover:bg-gray-700 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 focus:ring-offset-gray-800 cursor-pointer"
+									className="flex-1 py-2 px-3 sm:px-4 text-xs sm:text-sm font-medium text-gray-400 hover:text-gray-200 bg-transparent border border-gray-600 rounded-lg hover:bg-gray-700 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 focus:ring-offset-gray-800 cursor-pointer"
 								>
 									Отменить
 								</button>
 								<button
 									type="submit"
 									disabled={isLoading}
-									className={`flex-1 py-2 px-4 text-sm font-medium text-white rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-800 cursor-pointer ${
+									className={`flex-1 py-2 px-3 sm:px-4 text-xs sm:text-sm font-medium text-white rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-800 cursor-pointer ${
 										isIncome
 											? 'bg-green-600 hover:bg-green-700'
 											: 'bg-blue-600 hover:bg-blue-700'

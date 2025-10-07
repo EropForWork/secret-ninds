@@ -58,19 +58,19 @@ export function Login(): JSX.Element {
 	}, [navigate]);
 
 	return (
-		<div className="min-h-screen min-w-screen bg-gray-900 flex items-center justify-center p-4">
-			<div className="w-full max-w-md space-y-8">
-				{/* Заголовок — как в MUI */}
+		<div className="min-h-screen bg-gray-900 flex items-center justify-center p-2 sm:p-4">
+			<div className="w-full max-w-sm sm:max-w-md space-y-6 sm:space-y-8">
+				{/* Заголовок */}
 				<div className="text-center">
-					<h1 className="text-3xl font-semibold text-blue-200">
+					<h1 className="text-2xl sm:text-3xl font-semibold text-blue-200">
 						🔑 Вход в систему
 					</h1>
-					<p className="mt-2 text-sm text-gray-400">
+					<p className="mt-2 text-xs sm:text-sm text-gray-400">
 						Введите свои данные для доступа
 					</p>
 				</div>
 
-				{/* Сообщения — как в MUI */}
+				{/* Сообщения */}
 				{message && (
 					<p
 						className={`text-center text-xs font-medium ${
@@ -81,13 +81,16 @@ export function Login(): JSX.Element {
 					</p>
 				)}
 
-				{/* Форма — как в MUI */}
-				<form className="mt-8 space-y-6" onSubmit={handleSubmit}>
+				{/* Форма */}
+				<form
+					className="mt-6 sm:mt-8 space-y-4 sm:space-y-6"
+					onSubmit={handleSubmit}
+				>
 					{/* Логин */}
 					<div>
 						<label
 							htmlFor="username"
-							className="block text-sm font-medium text-gray-300 mb-1"
+							className="block text-xs sm:text-sm font-medium text-gray-300 mb-1"
 						>
 							Логин
 						</label>
@@ -99,7 +102,7 @@ export function Login(): JSX.Element {
 							required
 							value={form.username}
 							onChange={handleChange}
-							className="w-full rounded-md border border-gray-700 bg-gray-800 px-3 py-2 text-white placeholder-gray-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-colors duration-200"
+							className="w-full rounded-md border border-gray-700 bg-gray-800 px-3 py-2 text-white placeholder-gray-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-colors duration-200 text-sm"
 							placeholder="Введите логин"
 						/>
 					</div>
@@ -108,7 +111,7 @@ export function Login(): JSX.Element {
 					<div>
 						<label
 							htmlFor="password"
-							className="block text-sm font-medium text-gray-300 mb-1"
+							className="block text-xs sm:text-sm font-medium text-gray-300 mb-1"
 						>
 							Пароль
 						</label>
@@ -120,7 +123,7 @@ export function Login(): JSX.Element {
 							required
 							value={form.password}
 							onChange={handleChange}
-							className="w-full rounded-md border border-gray-700 bg-gray-800 px-3 py-2 text-white placeholder-gray-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-colors duration-200"
+							className="w-full rounded-md border border-gray-700 bg-gray-800 px-3 py-2 text-white placeholder-gray-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-colors duration-200 text-sm"
 							placeholder="Введите пароль"
 						/>
 					</div>
@@ -129,7 +132,7 @@ export function Login(): JSX.Element {
 					<div>
 						<button
 							type="submit"
-							className="relative w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transform transition-all duration-200 hover:scale-[1.01] active:scale-[0.99] cursor-pointer"
+							className="relative w-full flex justify-center py-2.5 sm:py-3 px-4 border border-transparent rounded-md shadow-sm text-xs sm:text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transform transition-all duration-200 hover:scale-[1.01] active:scale-[0.99] cursor-pointer"
 						>
 							Войти
 						</button>

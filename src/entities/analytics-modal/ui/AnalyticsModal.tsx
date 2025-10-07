@@ -102,18 +102,18 @@ export function AnalyticsModal({
 	return (
 		<>
 			<style>{scrollbarStyles}</style>
-			<div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 mb-0">
+			<div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-2 sm:p-4 mb-0">
 				{/* Модалка */}
-				<div className="bg-gray-800 rounded-xl border border-gray-700 shadow-2xl w-full max-w-4xl max-h-[92vh] p-6 text-white overflow-y-auto custom-scrollbar">
-					<div className="flex flex-row items-center justify-between mb-6">
+				<div className="bg-gray-800 rounded-xl border border-gray-700 shadow-2xl w-full max-w-sm sm:max-w-4xl max-h-[85vh] sm:max-h-[92vh] p-4 sm:p-6 text-white overflow-y-auto custom-scrollbar">
+					<div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 sm:mb-6 gap-3 sm:gap-0">
 						{/* Заголовок */}
-						<h2 className="text-xl font-semibold text-purple-200">
+						<h2 className="text-lg sm:text-xl font-semibold text-purple-200 text-center sm:text-left">
 							📊 Аналитика карточки "{card.name}"
 						</h2>
 						{/* Кнопка закрытия */}
 						<button
 							onClick={onClose}
-							className="py-2 px-4 text-sm font-medium text-gray-400 hover:text-gray-200 bg-transparent border border-gray-600 rounded-lg hover:bg-gray-700 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 focus:ring-offset-gray-800 cursor-pointer"
+							className="py-2 px-3 sm:px-4 text-xs sm:text-sm font-medium text-gray-400 hover:text-gray-200 bg-transparent border border-gray-600 rounded-lg hover:bg-gray-700 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 focus:ring-offset-gray-800 cursor-pointer"
 						>
 							Закрыть
 						</button>

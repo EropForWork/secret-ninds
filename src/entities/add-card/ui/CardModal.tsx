@@ -67,20 +67,20 @@ export function CardModal({
 	};
 
 	return (
-		<div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 mb-0">
-			<div className="bg-gray-800 rounded-xl border border-gray-700 shadow-2xl w-full max-w-md p-6 text-white">
+		<div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-2 sm:p-4 mb-0">
+			<div className="bg-gray-800 rounded-xl border border-gray-700 shadow-2xl w-full max-w-sm sm:max-w-md p-4 sm:p-6 text-white max-h-[90vh] overflow-y-auto">
 				{/* Заголовок */}
-				<h2 className="text-xl font-semibold text-blue-200 mb-6">
+				<h2 className="text-lg sm:text-xl font-semibold text-blue-200 mb-4 sm:mb-6">
 					➕ Добавить карточку
 				</h2>
 
 				{/* Форма */}
-				<form onSubmit={handleSubmit} className="space-y-4">
+				<form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
 					{/* Название */}
 					<div>
 						<label
 							htmlFor="name"
-							className="block text-sm font-medium text-gray-300 mb-1"
+							className="block text-xs sm:text-sm font-medium text-gray-300 mb-1"
 						>
 							Название
 						</label>
@@ -90,7 +90,7 @@ export function CardModal({
 							value={name}
 							onChange={e => setName(e.target.value)}
 							placeholder="Например: Продукты"
-							className="w-full rounded-md border border-gray-600 bg-gray-700 px-3 py-2 text-white placeholder-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+							className="w-full rounded-md border border-gray-600 bg-gray-700 px-3 py-2 text-white placeholder-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
 							required
 						/>
 					</div>
@@ -99,7 +99,7 @@ export function CardModal({
 					<div>
 						<label
 							htmlFor="color"
-							className="block text-sm font-medium text-gray-300 mb-1"
+							className="block text-xs sm:text-sm font-medium text-gray-300 mb-1"
 						>
 							Цвет фона
 						</label>
@@ -108,7 +108,7 @@ export function CardModal({
 							type="color"
 							value={color}
 							onChange={e => setColor(e.target.value)}
-							className="w-full h-10 rounded-md border border-gray-600 bg-gray-700 cursor-pointer"
+							className="w-full h-8 sm:h-10 rounded-md border border-gray-600 bg-gray-700 cursor-pointer"
 						/>
 						<p className="mt-1 text-xs text-gray-400">Выберите цвет</p>
 					</div>
@@ -117,7 +117,7 @@ export function CardModal({
 					<div>
 						<label
 							htmlFor="balance"
-							className="block text-sm font-medium text-gray-300 mb-1"
+							className="block text-xs sm:text-sm font-medium text-gray-300 mb-1"
 						>
 							Начальный баланс
 						</label>
@@ -129,15 +129,15 @@ export function CardModal({
 							value={balance}
 							onChange={e => setBalance(e.target.value)}
 							placeholder="Например: 1000.00"
-							className="w-full rounded-md border border-gray-600 bg-gray-700 px-3 py-2 text-white placeholder-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+							className="w-full rounded-md border border-gray-600 bg-gray-700 px-3 py-2 text-white placeholder-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
 							required
 						/>
 					</div>
 					{/* Порядок */}
 					<div>
 						<label
-							htmlFor="balance"
-							className="block text-sm font-medium text-gray-300 mb-1"
+							htmlFor="order"
+							className="block text-xs sm:text-sm font-medium text-gray-300 mb-1"
 						>
 							Порядок карточки
 						</label>
@@ -149,24 +149,24 @@ export function CardModal({
 							value={order}
 							onChange={e => setOrder(e.target.value)}
 							placeholder="Порядок отображения карточки"
-							className="w-full rounded-md border border-gray-600 bg-gray-700 px-3 py-2 text-white placeholder-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+							className="w-full rounded-md border border-gray-600 bg-gray-700 px-3 py-2 text-white placeholder-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
 							required
 						/>
 					</div>
 
 					{/* Кнопки управления */}
-					<div className="flex gap-3 pt-4 border-t border-gray-700">
+					<div className="flex flex-col sm:flex-row gap-2 sm:gap-3 pt-3 sm:pt-4 border-t border-gray-700">
 						<button
 							type="button"
 							onClick={handleClose}
-							className="flex-1 py-2 px-4 text-sm font-medium text-gray-400 hover:text-gray-200 bg-transparent border border-gray-600 rounded-lg hover:bg-gray-700 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 focus:ring-offset-gray-800 cursor-pointer"
+							className="flex-1 py-2 px-3 sm:px-4 text-xs sm:text-sm font-medium text-gray-400 hover:text-gray-200 bg-transparent border border-gray-600 rounded-lg hover:bg-gray-700 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 focus:ring-offset-gray-800 cursor-pointer"
 						>
 							Отмена
 						</button>
 						<button
 							type="submit"
 							disabled={isSaving}
-							className="flex-1 py-2 px-4 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-800 cursor-pointer"
+							className="flex-1 py-2 px-3 sm:px-4 text-xs sm:text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-800 cursor-pointer"
 						>
 							{isSaving ? 'Создаётся...' : 'Добавить'}
 						</button>

@@ -101,8 +101,8 @@ export function EditCardModal({
 	};
 
 	return (
-		<div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 mb-0">
-			<div className="bg-gray-800 rounded-xl border border-gray-700 shadow-2xl w-full max-w-md p-6 text-white">
+		<div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-2 sm:p-4 mb-0">
+			<div className="bg-gray-800 rounded-xl border border-gray-700 shadow-2xl w-full max-w-sm sm:max-w-md p-4 sm:p-6 text-white max-h-[90vh] overflow-y-auto">
 				{/* Заголовок */}
 				<h2 className="text-xl font-semibold text-blue-200 mb-6">
 					✏️ Редактировать карточку

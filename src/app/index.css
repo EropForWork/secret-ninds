@@ -22,3 +22,17 @@
 body {
 	margin: 0;
 }
+
+/* Улучшенная мобильная адаптация */
+@media (width <= 640px) {
+	:root {
+		font-size: 14px;
+	}
+}
+
+/* Улучшенные стили для мобильных устройств */
+@media (width <= 480px) {
+	:root {
+		font-size: 13px;
+	}
+}

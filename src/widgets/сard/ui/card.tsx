@@ -58,7 +58,7 @@ export function Card({ card, onDelete, onUpdate }: CardProps): JSX.Element {
 				}
 			`}</style>
 			<div
-				className="group relative p-5 bg-gray-800 rounded-xl border border-gray-700 text-white shadow-lg transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] transform overflow-hidden"
+				className="group relative p-3 sm:p-5 bg-gray-800 rounded-xl border border-gray-700 text-white shadow-lg transition-all duration-300 hover:shadow-2xl hover:scale-[1.01] sm:hover:scale-[1.02] transform overflow-hidden"
 				style={{
 					background: `linear-gradient(135deg, ${currentCard.color}15 0%, ${currentCard.color}25 50%, ${currentCard.color}15 100%)`,
 					boxShadow: `0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06), 0 0 0 1px ${currentCard.color}20`,
@@ -84,15 +84,15 @@ export function Card({ card, onDelete, onUpdate }: CardProps): JSX.Element {
 					/>
 				</div>
 				{/* Название и баланс */}
-				<div className="flex justify-between items-center mb-4">
+				<div className="flex justify-between items-center mb-3 sm:mb-4">
 					<button
 						onClick={handleOpenEditModal}
 						type="button"
-						className="group/btn flex items-center max-w-[60%] overflow-hidden gap-1 px-3 py-2 text-xs font-medium cursor-pointer text-blue-300 hover:text-blue-200 hover:bg-blue-900/20 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:ring-offset-2 focus:ring-offset-transparent backdrop-blur-sm cursor-pointer"
+						className="group/btn flex items-center max-w-[60%] overflow-hidden gap-1 px-2 sm:px-3 py-1.5 sm:py-2 text-xs font-medium text-blue-300 hover:text-blue-200 hover:bg-blue-900/20 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:ring-offset-2 focus:ring-offset-transparent backdrop-blur-sm cursor-pointer"
 					>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
-							className="h-3.5 w-3.5"
+							className="h-3 w-3 sm:h-3.5 sm:w-3.5"
 							fill="none"
 							viewBox="0 0 24 24"
 							stroke="currentColor"
@@ -104,14 +104,18 @@ export function Card({ card, onDelete, onUpdate }: CardProps): JSX.Element {
 								d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
 							/>
 						</svg>
-						<h3 className="text-xl font-semibold text-white group-hover/btn:text-blue-100 transition-colors duration-200">
+						<h3 className="text-sm sm:text-xl font-semibold text-white group-hover/btn:text-blue-100 transition-colors duration-200 truncate">
 							{currentCard.name}
 						</h3>
 					</button>
-					<div className="h-full flex flex-row justify-center items-center gap-3">
-						<span className={`text-sm font-medium text-gray-300`}>Баланс:</span>
+					<div className="flex items-center gap-1 sm:gap-3">
 						<span
-							className={`px-4 py-2 rounded-full text-sm font-bold shadow-lg transition-all duration-200 hover:shadow-xl ${
+							className={`text-xs sm:text-sm font-medium text-gray-300 hidden xs:inline`}
+						>
+							Баланс:
+						</span>
+						<span
+							className={`px-2 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-bold shadow-lg transition-all duration-200 hover:shadow-xl ${
 								currentCard.balance >= 0
 									? 'bg-gradient-to-r from-green-500 to-green-600 text-white '
 									: 'bg-gradient-to-r from-red-500 to-red-600 text-white '
@@ -123,12 +127,12 @@ export function Card({ card, onDelete, onUpdate }: CardProps): JSX.Element {
 						<button
 							type="button"
 							onClick={handleOpenAnalyticsModal}
-							className="group/analytics flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-r from-purple-500 to-purple-600 text-white cursor-pointer hover:from-purple-400 hover:to-purple-500 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:ring-offset-2 focus:ring-offset-transparent shadow-lg hover:shadow-xl hover:scale-110 transform cursor-pointer"
+							className="group/analytics flex items-center justify-center w-7 h-7 sm:w-10 sm:h-10 rounded-full bg-gradient-to-r from-purple-500 to-purple-600 text-white hover:from-purple-400 hover:to-purple-500 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:ring-offset-2 focus:ring-offset-transparent shadow-lg hover:shadow-xl hover:scale-110 transform cursor-pointer"
 							aria-label="Аналитика"
 						>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
-								className="h-5 w-5 group-hover/analytics:rotate-12 transition-transform duration-200"
+								className="h-3 w-3 sm:h-5 sm:w-5 group-hover/analytics:rotate-12 transition-transform duration-200"
 								fill="none"
 								viewBox="0 0 24 24"
 								stroke="currentColor"
@@ -144,15 +148,15 @@ export function Card({ card, onDelete, onUpdate }: CardProps): JSX.Element {
 					</div>
 				</div>
 
-				{/* Последняя операция — описание слева, сумма по центру, кнопка справа */}
-				<div className="relative flex flex-row items-center justify-between z-10">
+				{/* Последняя операция — горизонтальная версия */}
+				<div className="relative flex items-center justify-between z-10">
 					<div
-						className="group/operation p-4 w-[85%] bg-gradient-to-r from-gray-700 to-gray-600 rounded-xl border cursor-pointer border-gray-600 flex items-center justify-between hover:from-blue-900/30 hover:to-blue-800/30 transition-all duration-300 hover:shadow-lg hover:scale-[1.02] transform backdrop-blur-sm"
+						className="group/operation p-3 sm:p-4 w-[85%] bg-gradient-to-r from-gray-700 to-gray-600 rounded-xl border cursor-pointer border-gray-600 flex items-center justify-between hover:from-blue-900/30 hover:to-blue-800/30 transition-all duration-300 hover:shadow-lg hover:scale-[1.01] sm:hover:scale-[1.02] transform backdrop-blur-sm"
 						onClick={handleOpenHistoryModal}
 					>
-						{/* Слева: описание и дата */}
-						<div className="flex-1">
-							<p className="text-sm text-gray-300 mb-1">
+						{/* Описание и дата */}
+						<div className="flex-1 min-w-0">
+							<p className="text-xs sm:text-sm text-gray-300 mb-1 truncate">
 								{currentCard.lastOperation.description || '—'}
 							</p>
 							<time className="text-xs text-gray-400">
@@ -168,9 +172,9 @@ export function Card({ card, onDelete, onUpdate }: CardProps): JSX.Element {
 							</time>
 						</div>
 
-						{/* Сумма — по центру, но не мешает кнопке */}
+						{/* Сумма */}
 						<span
-							className={`px-2.5 py-1 rounded-full text-xs font-medium whitespace-nowrap mr-2 ${
+							className={`px-2 sm:px-2.5 py-1 rounded-full text-xs font-medium whitespace-nowrap ml-2 ${
 								currentCard.lastOperation.amount >= 0
 									? 'bg-green-600'
 									: 'bg-red-600'
@@ -183,16 +187,16 @@ export function Card({ card, onDelete, onUpdate }: CardProps): JSX.Element {
 							₽
 						</span>
 					</div>
-					{/* Кнопка "Добавить транзакцию" — справа, миниатюрная, как в MUI */}
+					{/* Кнопка "Добавить транзакцию" */}
 					<button
 						type="button"
 						onClick={handleOpenTransactionModal}
-						className="group/add flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 text-white cursor-pointer hover:from-blue-400 hover:to-blue-500 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:ring-offset-2 focus:ring-offset-transparent shadow-lg hover:shadow-xl hover:scale-110 transform"
+						className="group/add flex items-center justify-center w-7 h-7 sm:w-10 sm:h-10 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 text-white cursor-pointer hover:from-blue-400 hover:to-blue-500 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:ring-offset-2 focus:ring-offset-transparent shadow-lg hover:shadow-xl hover:scale-110 transform"
 						aria-label="Добавить транзакцию"
 					>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
-							className="h-5 w-5 group-hover/add:rotate-90 transition-transform duration-200"
+							className="h-3 w-3 sm:h-5 sm:w-5 group-hover/add:rotate-90 transition-transform duration-200"
 							fill="none"
 							viewBox="0 0 24 24"
 							stroke="currentColor"
